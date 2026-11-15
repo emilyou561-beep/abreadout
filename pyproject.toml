@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "abreadout"
+version = "0.1.0"
+description = "The checks and tests to run every time you read an A/B test: sample ratio mismatch, proportion and mean tests, power, CUPED, bootstrap, Holm correction."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Emily Ou" }]
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10", "pandas>=2.0"]
+keywords = ["ab testing", "experimentation", "statistics", "cuped", "sample ratio mismatch"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "statsmodels>=0.14", "ruff>=0.5"]
+
+[project.urls]
+Homepage = "https://github.com/emilyou561-beep/abreadout"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/abreadout"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
